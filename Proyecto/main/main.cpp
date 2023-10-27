@@ -1,4 +1,4 @@
-int main(int argc, char *argv[]) {
-    
+int main(int ar) {
+    cout << "hola"
     return 0;
 }

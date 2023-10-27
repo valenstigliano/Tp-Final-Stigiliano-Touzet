@@ -1,5 +1,9 @@
 #include "Clientes.h"
 #include "Gim.h"
+//funcion que no haya 2 clases a la vez
+//funcion hay cupo
+//funcion chequeo estado
+//funcion reserva(anadir el dni a la clase)
 
 bool hayEspacioClientes(lcliente* misclientes )
 {

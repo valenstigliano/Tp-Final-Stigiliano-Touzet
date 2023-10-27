@@ -7,8 +7,8 @@
     @return Error :: agrReserva::ExitoAgregar, agrReserva::ErrSinEspacio;
 */
 
-bool hayEspacio(Horarios* clase ) {
-    return (clase->CupoMax - clase->cupo > 0);
+bool hayEspacio(clase* Clase) {
+    return (Clase->cupo_max - Clase->cupo > 0);
 }
 
 /**

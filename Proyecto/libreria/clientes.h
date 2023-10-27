@@ -11,8 +11,8 @@ typedef enum agrCliente  eAgrCliente;
 
 struct cliente
 {
-    str Nombre, Apellido, Correo, Telefono;
-    int dni;
+
+    str id,Nombre, Apellido, Correo, Telefono,fechaNac, estado;
     int categoria;//1. musculacion 2. clases
     int Cant;
     clase inscripciones;

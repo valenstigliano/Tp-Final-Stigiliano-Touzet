@@ -3,30 +3,23 @@
 #include <iostream>
 #include <string>
 typedef std::string str;
-typedef struct sClase {
-    unsigned int id;
-    std::string nombre;
-} sClase;
-enum Clases { SPINNING, YOGA, PILATES, STRECHING, ZUMBA, BOXEO, NINGUNA };
-const str Clases[7] = {"SPINNING", "YOGA", "PILATES", "STRECHING","ZUMBA", "BOXEO" };
-typedef enum Clases eClase;
 enum agrReserva  { ErrSinEspacio = -1,  ExitoAgregar = 1 };
 enum rmReserva   {ErrDesinscribirse = -1, ExitoDesinscribirse = 1 };
 enum srchCliente { ErrSrchValor = -2,   ErrSrchIndex = -1, ExitoBuscar = 1 };
 
 
 struct Clase{
-    char sala;
+
     int cupo_max;
+    int cupo;
     int horario;
-    eClase tipo;
-    int* dni;
+    str nombreclase;
+    str* id;;
 }; typedef struct Clase clase;
 
 
 //funcion disponibilidad
-bool hayEspacio(Clase* clase );
-//funcion agregar reserva
+bool hayEspacio(clase* Clase);//funcion agregar reserva
 agrReserva inscripcion(clase* clases,horario* horarios);
 //funcion eliminar reserva
 rmReserva desinscripcion(clase* clases, horario* horarios,char dni);

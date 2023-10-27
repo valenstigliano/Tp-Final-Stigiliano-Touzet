@@ -20,3 +20,5 @@ else:unix: LIBS += -L$$OUT_PWD/../libreria/ -llibreria
 
 INCLUDEPATH += $$PWD/../libreria
 DEPENDPATH += $$PWD/../libreria
+
+HEADERS +=

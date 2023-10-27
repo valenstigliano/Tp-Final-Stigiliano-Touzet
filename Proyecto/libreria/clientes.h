@@ -3,8 +3,10 @@
 #define CLIENTES_H
 #define GIM_H
 
-const sCliente ClienteNulo = { "", "", "", "", "", {0},{0},{0}, eClase::NINGUNA };
+const Cliente ClienteNulo = { "", "", "", "", "","","",0,0,0};
 enum agrCliente  { ErrAgregar = -1,  ExitoAgregar = 1 };
+enum Cuota  { Nopago = -1,  pago = 1 };
+
 
 typedef enum agrCliente  eAgrCliente;
 
@@ -12,7 +14,8 @@ typedef enum agrCliente  eAgrCliente;
 struct cliente
 {
 
-    str id,Nombre, Apellido, Correo, Telefono,fechaNac, estado;
+    str id,Nombre, Apellido, Correo, Telefono,fechaNac;
+    int estado;
     int categoria;//1. musculacion 2. clases
     int Cant;
     clase inscripciones;
@@ -23,10 +26,11 @@ struct ListaCliente{
     int Actual;
     int Tam;
     int categoria;//1: musculacion, 2: clases
-}; typedef struct ListaClientes lcliente;
+}; typedef struct ListaCliente lcliente;
 
 bool hayEspacioClientes(lcliente* misclientes );
 eAgrCliente agregarCliente(lcliente* misclientes, Cliente cliente);
 lcliente* resizeContactos(lcliente* misclientes, int tam, int nuevoTam);
-void resizeContactos(lclientes** misclientes, int tam, int nuevoTam);
+void resizeContactos(lcliente** misclientes, int tam, int nuevoTam);
+Cuota Chequeoestado(Cliente cliente);
 #endif // CLIENTES_H

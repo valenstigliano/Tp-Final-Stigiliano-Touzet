@@ -1,26 +1,24 @@
 #include "Clientes.h"
 #include "Gim.h"
 //funcion que no haya 2 clases a la vez
-//funcion hay cupo
-//funcion chequeo estado
-//funcion reserva(anadir el dni a la clase)
+
 
 bool hayEspacioClientes(lcliente* misclientes )
 {
-    return (misclientes.Tam- misclientes->Actual > 0);
+    return (misclientes->Tam - misclientes->Actual > 0);
 }
 
-eAgrCliente agregarCliente(lcliente* misclientes, Cliente cliente)
+eAgrCliente agregarCliente(lcliente* misclientes, cliente Cliente)
 {
-    if (misclientes.Actual>=misclientes.Tam) {
-        resizeContactos(misclientes, misclientes.Actual, misclientes.Actual+1);
+    if (misclientes->Actual>=misclientes->Tam) {
+        resizeContactos(misclientes, misclientes->Actual, misclientes->Actual+1);
     }
-    misclientes[misclientes->Actual- 1] = cliente;
-    return eAgrCliente::ExitoAgregar;
+    misclientes[misclientes->Actual- 1] = Cliente;
+    return ExitoAgregar;
 }
-void resizeContactos(lclientes** misclientes, int tam, int nuevoTam)
+void resizeContactos(lcliente** misclientes, int tam, int nuevoTam)
 {
-    lclientes* aux = new lcliente[nuevoTam];
+    lcliente* aux = new lcliente[nuevoTam];
 
     if(aux == nullptr)
         return;
@@ -52,5 +50,14 @@ lcliente* resizeContactos(lcliente* misclientes, int tam, int nuevoTam)
 
     return nullptr;
 }
+Cuota Chequeoestado(Cliente cliente){
+    if(cliente.estado<0){
+        return Cuota::Nopago;
+    }else{
+        return Cuota::pago;
+    }
 
+
+
+}
 

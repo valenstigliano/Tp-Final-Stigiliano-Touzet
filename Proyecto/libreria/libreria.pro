@@ -14,6 +14,7 @@ SOURCES += \
 
 HEADERS += \
     clientes.h \
+    estructura.h \
     gim.h \
     libreria_global.h \
     libreria.h

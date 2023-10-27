@@ -1,6 +1,10 @@
 #include "Gim.h"
 #include "Clientes.h"
-
+//funcion hay espacio (tick)
+//funcion chequeo estado (tick)
+//funcion reserva(anadir el dni a la clase) (tick)
+//verificar que exista la clase y horario
+//verificar si no esta anotado 2 veces
 /**
 
     @brief Función se fija si hay espacio en la clase
@@ -15,40 +19,33 @@ bool hayEspacio(clase* Clase) {
     @brief Función que almacena el dni para dejar un registro de reserva;
 */
 
-void ReservaDni(Cliente cliente,eClase clases, Horarios* reserva, Clase* clase)
+void ReservaID(Cliente alumno,clase* Clase,str nombreClase,int hora)
 {
-    if(cliente != nullptr)
+    if(alumno.Apellido != "")
     {
-        if(hayEspacio(reserva))
+        if(hayEspacio(Clase)&& Chequeoestado(alumno)==pago)
         {
-            if(reserva->tipo==clases && reserva->turno==clase->horario.turno)
+            if(Clase->nombreclase==nombreClase && Clase->horario==hora)
             {
-                reserva->dni[reserva->cupo-1]=cliente.dni;
+                Clase->id[Clase->cupo-1]=alumno.id;
             }
+            Clase->cupo++;
         }
-    }
-}
 
-/**
-    @brief Función inscribirse a una clase
-    @return Error :: agrReserva::ExitoAgregar, agrReserva::ErrSinEspacio;
-*/
-agrReserva inscripcion(Clase* clases, Cliente cliente)
-{
-    if(hayEspacio(clases)==ExitoAgregar)
-    {
-        clases->horario.cupo++;
-        ReservaDni(cliente,clases->horario.tipo, clases->horario.cupo,clases);
-        return ExitoAgregar;
-    }else{
-        return ErrSinEspacio;
     }
+
 }
+/**
+    @brief Función chequeo estado de cuota
+*/
+
+
+
 /**
 @brief Función desinscribir
 @return Error :: ErrDesinscribirse = -1, ExitoDesinscribirse = 1;
 */
-rmReserva desinscripcion(clase* clases, horario* horarios, char dni)
+/*rmReserva desinscripcion(clase* clases, horario* horarios, char dni)
 {
     if(horarios.cupo>0 && clases.horario==horarios.cupo)
     {
@@ -71,22 +68,22 @@ rmReserva desinscripcion(clase* clases, horario* horarios, char dni)
         return ErrDesinscribirse;
     }
 
-}
+}*/
 
 
-void OrdenarPorApellido(horario* clase)
+void OrdenarPorApellido(lcliente* grupo)
 {
-    horario aux;
+    lcliente aux;
     int cont;
-    for(int i = 0; i < clase->cupo - 1; i++)
+    for(int i = 0; i < grupo->Tam - 1; i++)
     { cont=0;
-        for(int j = 0; j < clase->cupo - 1; j++)
+        for(int j = 0; j < grupo->Tam - 1; j++)
         {
-            if(clase[j].apellido[0]<=clase[j+1].apellido[0])
+            if(grupo->clientes[j].Apellido[0]<=grupo->clientes[j+1].Apellido[0])
             {
-                aux=clase[j];
-                clase[j]=clase[j+1];
-                clase[j+1]=aux;
+                aux=grupo[j];
+                grupo[j]=grupo[j+1];
+                grupo[j+1]=aux;
                 cont++;
             }
             if(cont==0)
@@ -96,29 +93,3 @@ void OrdenarPorApellido(horario* clase)
 }
 
 
-agrReserva inscripcion(Clase* clases, Cliente cliente)
-{
-    if(hayEspacio(clases)==ExitoAgregar)
-    {
-        clases->horario.cupo++;
-        ReservaDni(cliente,clases->horario.tipo, clases->horario.cupo,clases);
-        return ExitoAgregar;
-    }else{
-        return ErrSinEspacio;
-    }
-}
-
-
-agrReserva inscripcion(Clase* clases, Cliente cliente) {
-    if (hayEspacio(&clases->horario) == ExitoAgregar) {
-        if (clases->horario.cupo < clases->cupo_max) {
-            clases->horario.cupo++;
-            ReservaDni(cliente, clases->tipo, &clases->horario, clases);
-            return ExitoAgregar;
-        } else {
-            return ErrSinEspacio;
-        }
-    } else {
-        return ErrSinEspacio;
-    }
-}

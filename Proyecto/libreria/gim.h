@@ -20,13 +20,12 @@ struct Clase{
 
 //funcion disponibilidad
 bool hayEspacio(clase* Clase);//funcion agregar reserva
-agrReserva inscripcion(clase* clases,horario* horarios);
+//funcion reservar ID
+void ReservaID(Cliente alumno,clase* Clase,str nombreClase,int hora);
 //funcion eliminar reserva
-rmReserva desinscripcion(clase* clases, horario* horarios,char dni);
-//funcion guarda reserva
-void ReservaDni(Cliente cliente, eClase clase, Horarios* reserva, int horario);
+/*rmReserva desinscripcion(clase* clases, horario* horarios,char dni);*/
 //funcion ordenar por apellido
-void OrdenarPorApellido(horario* clase);
+void OrdenarPorApellido(lcliente* grupo);
 
 
 #endif // GIM_H

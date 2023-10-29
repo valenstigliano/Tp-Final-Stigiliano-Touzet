@@ -1,7 +1,7 @@
 #include "Clientes.h"
 #include "Gim.h"
 //funcion que no haya 2 clases a la vez
-
+//hpolaaaedwenjniwe
 
 bool hayEspacioClientes(lcliente* misclientes )
 {

@@ -18,7 +18,7 @@ struct cliente
     int estado;
     int categoria;//1. musculacion 2. clases
     int Cant;
-    cclase inscripciones;
+    cClase inscripciones;
 };typedef struct cliente eCliente;
 
 struct ListaCliente{

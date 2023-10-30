@@ -13,13 +13,13 @@ enum rmReserva   {ErrDesinscribirse = -1, ExitoDesinscribirse = 1 };
 
 typedef enum agrReserva eAgreserva;
 
-struct eClaseGIM{
-    int cupo_max;
-    int cupo;
+struct eClaseGIM{// agregar del tipo cliente y una cant de clientes del gim total, y una "actual" de clase
+    eCliente* clientes;
+    int cant;
+    int anotados;
     int horario;
     str nombreclase;
-    str* id;
-}; typedef struct eClaseGIM cClase;
+}; typedef struct eClaseGIM eClase;
 
 
 //funcion disponibilidad

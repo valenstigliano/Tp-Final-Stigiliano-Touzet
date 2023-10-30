@@ -3,12 +3,11 @@
 #define CLIENTES_H
 #define GIM_H
 
-const Cliente ClienteNulo = { "", "", "", "", "","","",0,0,0};
-enum agrCliente  { ErrAgregar = -1,  ExitoAgregar = 1 };
-enum Cuota  { Nopago = -1,  pago = 1 };
+/*enum agrCliente  { ErrAgregar = -1,  ExitoAgregar = 1 };*/
+enum Cuota  { Nopago =-1,  pago =1 };
 
-
-typedef enum agrCliente  eAgrCliente;
+typedef enum Cuota cuota;
+/*typedef enum agrCliente  eAgrCliente;*/
 
 
 struct cliente
@@ -29,7 +28,7 @@ struct ListaCliente{
 }; typedef struct ListaCliente lcliente;
 
 bool hayEspacioClientes(lcliente* misclientes );
-eAgrCliente agregarCliente(lcliente* misclientes, Cliente cliente);
+void agregarCliente(lcliente* misclientes, Cliente cliente);
 lcliente* resizeContactos(lcliente* misclientes, int tam, int nuevoTam);
 void resizeContactos(lcliente** misclientes, int tam, int nuevoTam);
 Cuota Chequeoestado(Cliente cliente);

@@ -1,20 +1,18 @@
 #include "Clientes.h"
 #include "Gim.h"
 //funcion que no haya 2 clases a la vez
-//hpolaaaedwenjniwe
 
 bool hayEspacioClientes(lcliente* misclientes )
 {
     return (misclientes->Tam - misclientes->Actual > 0);
 }
 
-eAgrCliente agregarCliente(lcliente* misclientes, cliente Cliente)
+void agregarCliente(lcliente* misclientes, cliente Cliente)
 {
     if (misclientes->Actual>=misclientes->Tam) {
         resizeContactos(misclientes, misclientes->Actual, misclientes->Actual+1);
     }
-    misclientes[misclientes->Actual- 1] = Cliente;
-    return ExitoAgregar;
+    misclientes->clientes[misclientes->Actual- 1] = Cliente;
 }
 void resizeContactos(lcliente** misclientes, int tam, int nuevoTam)
 {

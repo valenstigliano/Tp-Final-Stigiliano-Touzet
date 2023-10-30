@@ -1,6 +1,6 @@
 #include <clientes.h>
-#include <iostream>
-#include <string>
+#include iostream
+#include string
 #ifndef GIM_H
 #define GIM_H
 

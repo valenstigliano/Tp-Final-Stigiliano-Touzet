@@ -18,7 +18,7 @@ struct cliente
     str id,Nombre, Apellido, Correo, Telefono,fechaNac;
     int estado;//si pago o no
     int categoria;//1. musculacion 2. clases
-    cClase inscripciones;
+    eClase inscripciones;
 };typedef struct cliente eCliente;
 
 /*struct ListaCliente{

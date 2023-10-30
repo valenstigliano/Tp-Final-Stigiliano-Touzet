@@ -1,31 +1,35 @@
 #ifndef GIM_H
 #define GIM_H
+#include <clientes.h>
 #include <iostream>
 #include <string>
+using namespace std;
 typedef std::string str;
+
+
 enum agrReserva  { ErrSinEspacio = -1,  ExitoAgregar = 1 };
 enum rmReserva   {ErrDesinscribirse = -1, ExitoDesinscribirse = 1 };
-enum srchCliente { ErrSrchValor = -2,   ErrSrchIndex = -1, ExitoBuscar = 1 };
 
+typedef enum agrReserva eAgreserva;
 
 struct Clase{
-
     int cupo_max;
     int cupo;
     int horario;
-    str nombreclase;
-    str* id;;
+    string nombreclase;
+    string* id;
 }; typedef struct Clase clase;
 
 
 //funcion disponibilidad
 bool hayEspacio(clase* Clase);//funcion agregar reserva
 //funcion reservar ID
-void ReservaID(Cliente alumno,clase* Clase,str nombreClase,int hora);
+
+void ReservaID(Cliente alumno, clase* Clase, string nombreClase, int hora);
 //funcion eliminar reserva
-/*rmReserva desinscripcion(clase* clases, horario* horarios,char dni);*/
+rmReserva desinscripcion(clase* clases,char dni);
 //funcion ordenar por apellido
-void OrdenarPorApellido(lcliente* grupo);
+
 
 
 #endif // GIM_H

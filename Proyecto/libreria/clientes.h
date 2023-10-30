@@ -1,7 +1,10 @@
+using namespace std;
 #ifndef CLIENTES_H
-#include "Gim.h"
 #define CLIENTES_H
-#define GIM_H
+#include <gim.h>
+#include <string>
+#include <iostream>
+typedef std::string str;
 
 /*enum agrCliente  { ErrAgregar = -1,  ExitoAgregar = 1 };*/
 enum Cuota  { Nopago =-1,  pago =1 };
@@ -12,8 +15,7 @@ typedef enum Cuota cuota;
 
 struct cliente
 {
-
-    str id,Nombre, Apellido, Correo, Telefono,fechaNac;
+    string id,Nombre, Apellido, Correo, Telefono,fechaNac;
     int estado;
     int categoria;//1. musculacion 2. clases
     int Cant;
@@ -27,9 +29,11 @@ struct ListaCliente{
     int categoria;//1: musculacion, 2: clases
 }; typedef struct ListaCliente lcliente;
 
+
 bool hayEspacioClientes(lcliente* misclientes );
 void agregarCliente(lcliente* misclientes, Cliente cliente);
 lcliente* resizeContactos(lcliente* misclientes, int tam, int nuevoTam);
 void resizeContactos(lcliente** misclientes, int tam, int nuevoTam);
 Cuota Chequeoestado(Cliente cliente);
+void OrdenarPorApellido(lcliente* grupo);
 #endif // CLIENTES_H

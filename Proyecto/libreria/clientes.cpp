@@ -1,5 +1,5 @@
-#include "Clientes.h"
-#include "Gim.h"
+#include "clientes.h"
+#include "gim.h"
 //funcion que no haya 2 clases a la vez
 
 bool hayEspacioClientes(lcliente* misclientes )
@@ -23,7 +23,7 @@ void resizeContactos(lcliente** misclientes, int tam, int nuevoTam)
 
     int longitud = (tam < nuevoTam) ? tam: nuevoTam;
 
-    for(u_int i = 0; i < longitud; i++)
+    for(int i = 0; i < longitud; i++)
         aux[i] = *misclientes[i];
 
     delete[] *misclientes;
@@ -39,7 +39,7 @@ lcliente* resizeContactos(lcliente* misclientes, int tam, int nuevoTam)
 
     if(aux != nullptr) {
 
-        for(u_int i = 0; i < longitud; i++)
+        for(int i = 0; i < longitud; i++)
             aux[i] = misclientes[i];
 
         delete[] misclientes;
@@ -54,8 +54,26 @@ Cuota Chequeoestado(Cliente cliente){
     }else{
         return Cuota::pago;
     }
+}
 
-
-
+void OrdenarPorApellido(lcliente* grupo)
+{
+    lcliente aux;
+    int cont;
+    for(int i = 0; i < grupo->Tam - 1; i++)
+    { cont=0;
+        for(int j = 0; j < grupo->Tam - 1; j++)
+        {
+            if(grupo->clientes[j].Apellido[0]<=grupo->clientes[j+1].Apellido[0])
+            {
+                aux=grupo[j];
+                grupo[j]=grupo[j+1];
+                grupo[j+1]=aux;
+                cont++;
+            }
+            if(cont==0)
+                break;
+        }
+    }
 }
 

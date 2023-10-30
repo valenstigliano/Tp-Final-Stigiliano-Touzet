@@ -1,5 +1,5 @@
-#include "Gim.h"
-#include "Clientes.h"
+#include "gim.h"
+#include "clientes.h"
 //funcion hay espacio (tick)
 //funcion chequeo estado (tick)
 //funcion reserva(anadir el dni a la clase) (tick)
@@ -19,7 +19,7 @@ bool hayEspacio(clase* Clase) {
     @brief Función que almacena el dni para dejar un registro de reserva;
 */
 
-void ReservaID(Cliente alumno,clase* Clase,str nombreClase,int hora)
+void ReservaID(Cliente alumno, clase* Clase, string nombreClase, int hora)
 {
     if(alumno.Apellido != "")
     {
@@ -31,9 +31,7 @@ void ReservaID(Cliente alumno,clase* Clase,str nombreClase,int hora)
             }
             Clase->cupo++;
         }
-
     }
-
 }
 /**
     @brief Función chequeo estado de cuota
@@ -70,26 +68,5 @@ void ReservaID(Cliente alumno,clase* Clase,str nombreClase,int hora)
 
 }*/
 
-
-void OrdenarPorApellido(lcliente* grupo)
-{
-    lcliente aux;
-    int cont;
-    for(int i = 0; i < grupo->Tam - 1; i++)
-    { cont=0;
-        for(int j = 0; j < grupo->Tam - 1; j++)
-        {
-            if(grupo->clientes[j].Apellido[0]<=grupo->clientes[j+1].Apellido[0])
-            {
-                aux=grupo[j];
-                grupo[j]=grupo[j+1];
-                grupo[j+1]=aux;
-                cont++;
-            }
-            if(cont==0)
-                break;
-        }
-    }
-}
 
 

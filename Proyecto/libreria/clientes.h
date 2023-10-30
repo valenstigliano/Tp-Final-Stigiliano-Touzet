@@ -1,4 +1,3 @@
-using namespace std;
 #ifndef CLIENTES_H
 #define CLIENTES_H
 #include <gim.h>
@@ -15,15 +14,15 @@ typedef enum Cuota cuota;
 
 struct cliente
 {
-    string id,Nombre, Apellido, Correo, Telefono,fechaNac;
+    str id,Nombre, Apellido, Correo, Telefono,fechaNac;
     int estado;
     int categoria;//1. musculacion 2. clases
     int Cant;
-    clase inscripciones;
-};typedef struct cliente Cliente;
+    cclase inscripciones;
+};typedef struct cliente eCliente;
 
 struct ListaCliente{
-    Cliente* clientes;
+    eCliente* clientes;
     int Actual;
     int Tam;
     int categoria;//1: musculacion, 2: clases
@@ -31,9 +30,9 @@ struct ListaCliente{
 
 
 bool hayEspacioClientes(lcliente* misclientes );
-void agregarCliente(lcliente* misclientes, Cliente cliente);
+void agregarCliente(lcliente* misclientes, eCliente cliente);
 lcliente* resizeContactos(lcliente* misclientes, int tam, int nuevoTam);
 void resizeContactos(lcliente** misclientes, int tam, int nuevoTam);
-Cuota Chequeoestado(Cliente cliente);
+Cuota Chequeoestado(eCliente cliente);
 void OrdenarPorApellido(lcliente* grupo);
 #endif // CLIENTES_H

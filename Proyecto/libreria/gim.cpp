@@ -11,7 +11,7 @@
     @return Error :: agrReserva::ExitoAgregar, agrReserva::ErrSinEspacio;
 */
 
-bool hayEspacio(clase* Clase) {
+bool hayEspacio(cclase* Clase) {
     return (Clase->cupo_max - Clase->cupo > 0);
 }
 
@@ -19,7 +19,7 @@ bool hayEspacio(clase* Clase) {
     @brief Función que almacena el dni para dejar un registro de reserva;
 */
 
-void ReservaID(Cliente alumno, clase* Clase, string nombreClase, int hora)
+void ReservaID(eCliente alumno, cclase* Clase, string nombreClase, int hora)
 {
     if(alumno.Apellido != "")
     {
@@ -43,7 +43,7 @@ void ReservaID(Cliente alumno, clase* Clase, string nombreClase, int hora)
 @brief Función desinscribir
 @return Error :: ErrDesinscribirse = -1, ExitoDesinscribirse = 1;
 */
-/*rmReserva desinscripcion(clase* clases, horario* horarios, char dni)
+/*rmReserva desinscripcion(clase* clases, str dni)
 {
     if(horarios.cupo>0 && clases.horario==horarios.cupo)
     {

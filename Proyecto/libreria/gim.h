@@ -12,22 +12,22 @@ enum rmReserva   {ErrDesinscribirse = -1, ExitoDesinscribirse = 1 };
 
 typedef enum agrReserva eAgreserva;
 
-struct Clase{
+struct eClaseGIM{
     int cupo_max;
     int cupo;
     int horario;
-    string nombreclase;
-    string* id;
-}; typedef struct Clase clase;
+    str nombreclase;
+    str* id;
+}; typedef struct eClaseGIM cclase;
 
 
 //funcion disponibilidad
-bool hayEspacio(clase* Clase);//funcion agregar reserva
+bool hayEspacio(cclase* Clase);//funcion agregar reserva
 //funcion reservar ID
 
-void ReservaID(Cliente alumno, clase* Clase, string nombreClase, int hora);
+void ReservaID(eCliente alumno, cclase* Clase, string nombreClase, int hora);
 //funcion eliminar reserva
-rmReserva desinscripcion(clase* clases,char dni);
+rmReserva desinscripcion(cclase* clases,str id);
 //funcion ordenar por apellido
 
 

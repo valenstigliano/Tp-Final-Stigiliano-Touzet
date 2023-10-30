@@ -7,7 +7,7 @@ bool hayEspacioClientes(lcliente* misclientes )
     return (misclientes->Tam - misclientes->Actual > 0);
 }
 
-void agregarCliente(lcliente* misclientes, cliente Cliente)
+void agregarCliente(lcliente* misclientes, eCliente Cliente)
 {
     if (misclientes->Actual>=misclientes->Tam) {
         resizeContactos(misclientes, misclientes->Actual, misclientes->Actual+1);
@@ -48,7 +48,7 @@ lcliente* resizeContactos(lcliente* misclientes, int tam, int nuevoTam)
 
     return nullptr;
 }
-Cuota Chequeoestado(Cliente cliente){
+Cuota Chequeoestado(eCliente cliente){
     if(cliente.estado<0){
         return Cuota::Nopago;
     }else{

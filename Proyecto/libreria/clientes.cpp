@@ -2,36 +2,71 @@
 #include "gim.h"
 //funcion que no haya 2 clases a la vez
 
-bool hayEspacioClientes(lcliente* misclientes )
+bool hayEspacioClientes(eCliente* misclientes )
 {
-    return (misclientes->Tam - misclientes->Actual > 0);
+    return (misclientes->tam_max - misclientes->actual > 0);
 }
 
-void agregarCliente(lcliente* misclientes, eCliente Cliente)
+void agregarCliente(eCliente* clientes, eCliente clienteNuevo)
 {
-    if (misclientes->Actual>=misclientes->Tam) {
-        resizeContactos(misclientes, misclientes->Actual, misclientes->Actual+1);
+    if (clientes->actual>=clientes->tam_max) {
+        resizeContactos(clientes, clientes->actual, clientes->actual+1);
     }
-    misclientes->clientes[misclientes->Actual- 1] = Cliente;
+    clientes[clientes->actual- 1] = clienteNuevo;
 }
-void resizeContactos(lcliente** misclientes, int tam, int nuevoTam)
+
+/*void resizeContactos(eCliente** misclientes, int tam_max, int nuevoTam)
 {
-    lcliente* aux = new lcliente[nuevoTam];
+
+    eCliente** aux = new eCliente*[nuevoTam];
 
     if(aux == nullptr)
         return;
 
-    int longitud = (tam < nuevoTam) ? tam: nuevoTam;
+    int longitud = (tam_max < nuevoTam) ? tam_max: nuevoTam;
 
     for(int i = 0; i < longitud; i++)
-        aux[i] = *misclientes[i];
+        aux[i] = misclientes[i];
 
+    for (int i = 0; i < tam_max; i++) {
+        delete misclientes[i];
+    }
     delete[] *misclientes;
-    *misclientes = aux;
+
+    // Actualizar el puntero misclientes
+    *misclientes = *aux;
+}*/
+
+
+
+Cuota Chequeoestado(eCliente cliente){
+    if(cliente.estado<0){
+        return Cuota::Nopago;
+    }else{
+        return Cuota::pago;
+    }
 }
-
-
-lcliente* resizeContactos(lcliente* misclientes, int tam, int nuevoTam)
+void OrdenarPorApellido(eCliente* misclientes)
+{
+    eCliente aux;
+    int cont;
+    for(int i = 0; i < misclientes->actual - 1; i++)
+    { cont=0;
+        for(int j = 0; j < misclientes->actual-1; j++)
+        {
+            if(misclientes[j].Apellido[0]<=misclientes[j+1].Apellido[0])
+            {
+                aux=misclientes[j];
+                misclientes[j]=misclientes[j+1];
+                misclientes[j+1]=aux;
+                cont++;
+            }
+            if(cont==0)
+                break;
+        }
+    }
+}
+/*lcliente* resizeContactos(lcliente* misclientes, int tam, int nuevoTam)
 {
     lcliente* aux = new lcliente[nuevoTam];
 
@@ -47,33 +82,4 @@ lcliente* resizeContactos(lcliente* misclientes, int tam, int nuevoTam)
     }
 
     return nullptr;
-}
-Cuota Chequeoestado(eCliente cliente){
-    if(cliente.estado<0){
-        return Cuota::Nopago;
-    }else{
-        return Cuota::pago;
-    }
-}
-
-void OrdenarPorApellido(lcliente* grupo)
-{
-    lcliente aux;
-    int cont;
-    for(int i = 0; i < grupo->Tam - 1; i++)
-    { cont=0;
-        for(int j = 0; j < grupo->Tam - 1; j++)
-        {
-            if(grupo->clientes[j].Apellido[0]<=grupo->clientes[j+1].Apellido[0])
-            {
-                aux=grupo[j];
-                grupo[j]=grupo[j+1];
-                grupo[j+1]=aux;
-                cont++;
-            }
-            if(cont==0)
-                break;
-        }
-    }
-}
-
+}*/

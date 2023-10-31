@@ -1,6 +1,6 @@
 #include <clientes.h>
-#include iostream
-#include string
+#include <iostream>
+#include <string>
 #ifndef GIM_H
 #define GIM_H
 
@@ -9,13 +9,18 @@ typedef std::string str;
 
 
 enum agrReserva  { ErrSinEspacio = -1,  ExitoAgregar = 1 };
+enum inscripcion {Errinscripcion=-1, Exitoinscripcion=1};
 enum rmReserva   {ErrDesinscribirse = -1, ExitoDesinscribirse = 1 };
+enum verifico {ErrYaestaanotad=-1, ExitoNoestaanotado=1};
 
+typedef enum verifico eVerifico;
+typedef enum inscripcion eAgrinscripcion;
 typedef enum agrReserva eAgreserva;
 
 struct eClaseGIM{// agregar del tipo cliente y una cant de clientes del gim total, y una "actual" de clase
     eCliente* clientes;
-    int cant;
+    int cantClases;
+    int cupo;
     int anotados;
     int horario;
     str nombreclase;
@@ -23,13 +28,15 @@ struct eClaseGIM{// agregar del tipo cliente y una cant de clientes del gim tota
 
 
 //funcion disponibilidad
-bool hayEspacio(cclase* Clase);//funcion agregar reserva
+bool hayEspacio(eClase Clase);
 //funcion reservar ID
-
-void ReservaID(eCliente alumno, cClase* Clase, string nombreClase, int hora);
+eAgrinscripcion ReservaID(eCliente alumno, eClase* Clase, str nombreClase, int hora);
+//funcion busca a todas las clases que esta inscripto un alumno por su id
+eClase buscarXiD(eClase* clases, str id);
 //funcion eliminar reserva
-rmReserva desinscripcion(cClase* clases,str id);
-//funcion ordenar por apellido
+rmReserva desinscripcion(eClase* clases,str id);
+//funcion verifica si el cliente no esta anotado en la clase ya
+eVerifico repetido(eClase* clases, str id);
 
 
 

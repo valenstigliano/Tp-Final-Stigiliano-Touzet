@@ -1,4 +1,3 @@
-#include <gim.h>
 #include <string>
 #include <iostream>
 #ifndef CLIENTES_H
@@ -18,7 +17,8 @@ struct cliente
     str id,Nombre, Apellido, Correo, Telefono,fechaNac;
     int estado;//si pago o no
     int categoria;//1. musculacion 2. clases
-    eClase inscripciones;
+    int actual;
+    int tam_max;
 };typedef struct cliente eCliente;
 
 /*struct ListaCliente{
@@ -28,10 +28,10 @@ struct cliente
 }; typedef struct ListaCliente lcliente;
 */
 
-bool hayEspacioClientes(lcliente* misclientes );
-void agregarCliente(lcliente* misclientes, eCliente cliente);
-lcliente* resizeContactos(lcliente* misclientes, int tam, int nuevoTam);
-void resizeContactos(lcliente** misclientes, int tam, int nuevoTam);
+bool hayEspacioClientes(eCliente* misclientes );
+void agregarCliente(eCliente* clientes, eCliente clienteNuevo);
+void resizeContactos(eCliente** misclientes, int tam_max, int nuevoTam);
+eCliente* resizeContactos(eCliente* misclientes, int tam_max, int nuevoTam);
 Cuota Chequeoestado(eCliente cliente);
-void OrdenarPorApellido(lcliente* grupo);
+void OrdenarPorApellido(eCliente* misclientes);
 #endif // CLIENTES_H

@@ -6,6 +6,7 @@ bool hayEspacioClientes(eCliente* misclientes )
 {
     return (misclientes->tam_max - misclientes->actual > 0);
 }
+<<<<<<< Updated upstream
 
 void agregarCliente(eCliente* clientes, eCliente clienteNuevo)
 {
@@ -16,6 +17,9 @@ void agregarCliente(eCliente* clientes, eCliente clienteNuevo)
 }
 
 void resizeContactos(eCliente** misclientes, int tam_max, int nuevoTam)
+=======
+void ResizeLista(lcliente** misclientes, int tam, int nuevoTam)
+>>>>>>> Stashed changes
 {
 
     eCliente** aux = new eCliente*[nuevoTam];
@@ -36,6 +40,28 @@ void resizeContactos(eCliente** misclientes, int tam_max, int nuevoTam)
     // Actualizar el puntero misclientes
     *misclientes = *aux;
 }
+
+agrCliente agregarCliente(lcliente* misclientes, cliente Cliente)
+{
+    if (misclientes->Actual>=misclientes->Tam) {
+        resizeContactos(misclientes, misclientes->Actual, misclientes->Actual+1);
+    }
+    misclientes->clientes[misclientes->Actual- 1] = Cliente;
+    if(misclientes->Actual+1>misclientes->Tam){
+        ResizeLista(misclientes, misclientes->Tam, misclientes->Tam+1);
+
+\
+    }
+    misclientes->Actual+1;
+
+    return ExAgregar;
+}
+/*    str id,Nombre, Apellido, Correo, Telefono,fechaNac;
+    int estado;
+    int categoria;//1. musculacion 2. clases
+    int Cant;
+    clase inscripciones;*/
+
 
 
 
@@ -82,4 +108,22 @@ void OrdenarPorApellido(eCliente* misclientes)
     }
 
     return nullptr;
+<<<<<<< Updated upstream
 }*/
+=======
+}
+/**
+    @brief Función chequeo estado de cuota
+*/
+Cuota Chequeoestado(Cliente cliente){
+    if(cliente.estado<0){
+        return Cuota::Nopago;
+    }else{
+        return Cuota::pago;
+    }
+
+
+
+}
+
+>>>>>>> Stashed changes

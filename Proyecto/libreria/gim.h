@@ -1,3 +1,8 @@
+<<<<<<< Updated upstream
+=======
+#ifndef GIM_H
+#define GIM_H
+>>>>>>> Stashed changes
 #include <clientes.h>
 #include <iostream>
 #include <string>
@@ -6,10 +11,14 @@
 
 using namespace std;
 typedef std::string str;
+<<<<<<< Updated upstream
 
 
 enum agrReserva  { ErrSinEspacio = -1,  ExitoAgregar = 1 };
 enum inscripcion {Errinscripcion=-1, Exitoinscripcion=1};
+=======
+enum agrReserva  { ErrSinEspacio = -1,exitoAgregar = 1 };
+>>>>>>> Stashed changes
 enum rmReserva   {ErrDesinscribirse = -1, ExitoDesinscribirse = 1 };
 enum verifico {ErrYaestaanotad=-1, ExitoNoestaanotado=1};
 

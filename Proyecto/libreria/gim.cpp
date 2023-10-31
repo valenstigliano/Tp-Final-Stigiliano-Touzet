@@ -25,8 +25,13 @@ eAgrinscripcion ReservaID(eCliente alumno, eClase* Clase, str nombreClase, int h
     {
         if(hayEspacio(Clase)&& Chequeoestado(alumno)==pago)//si hay espacion en la clase y si pago la cuota
         {
+<<<<<<< Updated upstream
 
             if(Clase->nombreclase==nombreClase && Clase->horario==hora)//me fijo que la clase que quiera exista
+=======
+            Clase->cupo++;
+            if(Clase->nombreclase==nombreClase && Clase->horario==hora)
+>>>>>>> Stashed changes
             {
                  Clase->anotados++;//sumo uno a los anotados
                  Clase->clientes[Clase->anotados-1]=alumno;//copio en el ultimo anotado al alumno que se quiere inscribir
@@ -55,6 +60,10 @@ eClase buscarXiD(eClase* clases, str id)
             {
                 cont++;
             }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         }
 
     }
@@ -107,7 +116,15 @@ eVerifico horarioRepetido(eClase* clases, eClase clase, eCliente cliente){
     return eVerifico::ExitoNoestaanotado;
 
 }
+<<<<<<< Updated upstream
 /*
+=======
+
+
+
+
+/**
+>>>>>>> Stashed changes
 @brief Función desinscribir
 @return Error :: ErrDesinscribirse = -1, ExitoDesinscribirse = 1;
 */

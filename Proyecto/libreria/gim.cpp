@@ -80,8 +80,6 @@ eClase buscarXiD(eClase* clases, str id)
 */
 eVerifico repetido(eClase* clases, str id){
 
-
-
    for(int j=0; j<clases->anotados;j++)
     {
         if(clases->clientes[j].id==id)
@@ -94,7 +92,7 @@ eVerifico repetido(eClase* clases, str id){
     }
 }
 
-spinig()
+
 /*
 @brief Función desinscribir
 @return Error :: ErrDesinscribirse = -1, ExitoDesinscribirse = 1;

@@ -19,6 +19,7 @@ typedef enum agrReserva eAgreserva;
 
 struct eClaseGIM{// agregar del tipo cliente y una cant de clientes del gim total, y una "actual" de clase
     eCliente* clientes;
+    int cantClases;
     int cupo;
     int anotados;
     int horario;

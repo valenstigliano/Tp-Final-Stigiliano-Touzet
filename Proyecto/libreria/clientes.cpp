@@ -1,6 +1,7 @@
 #include "clientes.h"
 #include "gim.h"
 //funcion que no haya 2 clases a la vez
+// trigger commit
 
 bool hayEspacioClientes(eCliente* misclientes )
 {

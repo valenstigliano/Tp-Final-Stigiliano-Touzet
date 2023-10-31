@@ -6,7 +6,7 @@ bool hayEspacioClientes(eCliente* misclientes )
 {
     return (misclientes->tam_max - misclientes->actual > 0);
 }
-<<<<<<< Updated upstream
+
 
 void agregarCliente(eCliente* clientes, eCliente clienteNuevo)
 {
@@ -17,9 +17,9 @@ void agregarCliente(eCliente* clientes, eCliente clienteNuevo)
 }
 
 void resizeContactos(eCliente** misclientes, int tam_max, int nuevoTam)
-=======
+
 void ResizeLista(lcliente** misclientes, int tam, int nuevoTam)
->>>>>>> Stashed changes
+
 {
 
     eCliente** aux = new eCliente*[nuevoTam];
@@ -108,10 +108,8 @@ void OrdenarPorApellido(eCliente* misclientes)
     }
 
     return nullptr;
-<<<<<<< Updated upstream
+
 }*/
-=======
-}
 /**
     @brief Función chequeo estado de cuota
 */
@@ -126,4 +124,3 @@ Cuota Chequeoestado(Cliente cliente){
 
 }
 
->>>>>>> Stashed changes

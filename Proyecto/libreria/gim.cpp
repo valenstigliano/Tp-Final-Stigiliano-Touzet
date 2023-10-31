@@ -87,7 +87,7 @@ eVerifico repetido(eClase* clases, str id){
            if(clases[i].clientes[j].id==id){
             return eVerifico::ErrYaestaanotad;
            }else{
-            eVerifico::ExitoNoestaanotado;
+            return eVerifico::ExitoNoestaanotado;
            }
 
         }

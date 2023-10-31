@@ -15,7 +15,7 @@ void agregarCliente(eCliente* clientes, eCliente clienteNuevo)
     clientes[clientes->actual- 1] = clienteNuevo;
 }
 
-/*void resizeContactos(eCliente** misclientes, int tam_max, int nuevoTam)
+void resizeContactos(eCliente** misclientes, int tam_max, int nuevoTam)
 {
 
     eCliente** aux = new eCliente*[nuevoTam];
@@ -35,7 +35,7 @@ void agregarCliente(eCliente* clientes, eCliente clienteNuevo)
 
     // Actualizar el puntero misclientes
     *misclientes = *aux;
-}*/
+}
 
 
 

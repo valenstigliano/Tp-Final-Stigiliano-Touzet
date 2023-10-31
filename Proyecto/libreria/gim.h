@@ -33,6 +33,8 @@ bool hayEspacio(eClase Clase);
 eAgrinscripcion ReservaID(eCliente alumno, eClase* Clase, str nombreClase, int hora);
 //funcion busca a todas las clases que esta inscripto un alumno por su id
 eClase buscarXiD(eClase* clases, str id);
+//funcion se fija que no este inscripto en 2 clases al mismo horario
+eVerifico horarioRepetido(eClase* clases, eClase clase, eCliente cliente);
 //funcion eliminar reserva
 rmReserva desinscripcion(eClase* clases,str id);
 //funcion verifica si el cliente no esta anotado en la clase ya

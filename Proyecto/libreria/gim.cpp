@@ -91,8 +91,22 @@ eVerifico repetido(eClase* clases, str id){
 
     }
 }
+/*
+@brief Función verificar si el cliente no esta en 2 clases al mismo horario
+*/
+eVerifico horarioRepetido(eClase* clases, eClase clase, eCliente cliente){
+    for(int i=0;i<clases->cantClases;i++){
+           for(int j=0; j<clases->anotados;j++)
+           {
+                if(clases[i].horario==clase.horario && clases[i].clientes[j].id==cliente.id ){
+                return eVerifico::ErrYaestaanotad;
+                }
+           }
 
+    }
+    return eVerifico::ExitoNoestaanotado;
 
+}
 /*
 @brief Función desinscribir
 @return Error :: ErrDesinscribirse = -1, ExitoDesinscribirse = 1;

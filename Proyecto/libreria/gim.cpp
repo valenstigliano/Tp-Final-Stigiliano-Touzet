@@ -96,11 +96,7 @@ eVerifico repetido(eClase* clases, str id){
 
 
 
-
-
-
-
-/**
+/*
 @brief Función desinscribir
 @return Error :: ErrDesinscribirse = -1, ExitoDesinscribirse = 1;
 */
